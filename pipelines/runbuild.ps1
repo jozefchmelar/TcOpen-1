@@ -7,6 +7,11 @@ $path = Split-Path -Path $MyInvocation.MyCommand.Path
 
 write-host "Importing psake"
 Import-Module ($path + '\psake.psm1')
+try{
+  Remove-Module tcobuildutils
+}catch{
+
+}
 Import-Module ($path + '\tcobuildutils.psm1') -Force
 Try
 {
@@ -27,4 +32,5 @@ Try
 Finally
 {
   Remove-Module psake
+  Remove-Module tcobuildutils
 }
