@@ -1,0 +1,34 @@
+name: docu
+
+on: 
+  push:
+  pull_request: 
+    paths:
+      - 'src/**'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 30
+    steps:
+      # - uses: actions/checkout@v2
+      # #
+      # - name: Fetch unshallow
+      #   run: git fetch --unshallow
+      # #
+      # - name: Run a multi-line script
+      #   run: |
+      #     .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
+      # #
+      - name: Checkout main repo
+        uses: actions/checkout@v2
+        with:
+          repository: TcOpenGroup/TcOpen
+          path: main
+
+      - name: Checkout docu repo
+        uses: actions/checkout@v2
+        with:
+          repository: TcOpenGroup/TcOpen.Documentation
+          path: docu
+
