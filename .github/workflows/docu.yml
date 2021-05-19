@@ -14,12 +14,12 @@ jobs:
       # - uses: actions/checkout@v2
       # #
       # - name: Fetch unshallow
-      #   run: git fetch --unshallow
-      # #
-      # - name: Run a multi-line script
-      #   run: |
-      #     .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
-      # #
+        # run: git fetch --unshallow
+      #
+      - name: Clean folder
+        run: |
+          rm -r -f
+      #
       - name: Checkout main repo
         uses: actions/checkout@v2
         with:
