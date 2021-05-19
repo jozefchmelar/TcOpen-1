@@ -43,7 +43,7 @@ function EnsureGitVersion {
     }
    
     
-    $gitVersionFile = (Join-Path ($gitVersionFolder) (Split-Path $gitversionUrl -Leaf))
+    $gitVersionFile = (Join-Path ($pwd) ($gitVersionFolder) (Split-Path $gitversionUrl -Leaf))
     $tar = $gitVersionFile.Replace(".gz","")
 
     DeGZip-File -infile $gitVersionFile -outfile $tar

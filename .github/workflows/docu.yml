@@ -45,5 +45,6 @@ jobs:
             dotnet build
             git add -A
             git commit -m "Updated documentation"
-            git push
+      
+#git push
 
