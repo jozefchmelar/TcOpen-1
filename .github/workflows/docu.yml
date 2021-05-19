@@ -34,14 +34,14 @@ jobs:
       
       - name : Build TcOpen
         run: |
-            Push-Location TcOpen
+            cd TcOpen
             git fetch --unshallow
             .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
-            Pop-Location
+            cd ..
 
       - name : Build TcOpen.Documentation
         run: |
-            Push-Location TcOpen.Documentation
+            cd TcOpen.Documentation
             dotnet build
             git add -A
             git commit -m "Updated documentation"
