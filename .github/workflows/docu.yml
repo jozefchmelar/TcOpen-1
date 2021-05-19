@@ -20,6 +20,9 @@ jobs:
       #   run: |
       #     .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
       # #
+      - name: Clean
+        uses: AutoModality/action-clean@v1
+
       - name: Checkout main repo
         uses: actions/checkout@v2
         with:
