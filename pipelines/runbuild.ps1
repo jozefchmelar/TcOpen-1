@@ -27,5 +27,4 @@ Try
 Finally
 {
   Remove-Module psake
-  Remove-Module tcobuildutils
 }

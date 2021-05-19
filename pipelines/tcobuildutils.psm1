@@ -27,15 +27,12 @@ function EnsureGitVersion {
     )
 
    
-    throw "what in the flying fuck is going on"
     
     $gitVersionFolder = Split-Path $pathToGitVersion
     Push-Location $gitVersionFolder
     $gitVersionExecutableFullName = ((Join-Path (pwd) "gitversion.exe"))
     $gitVersionPwd = Get-Location
-    Write-Error  'aaaaaaaaaaaaaaaaaaa'
-    Write-Error  $gitVersionPwd
-    Write-Error 'aaaaaaaaaaaaaaaaaaa'
+    Write-Host  $gitVersionPwd
     Pop-Location
 
     DownloadIfMissing -folder $gitVersionFolder -url $gitversionUrl 
