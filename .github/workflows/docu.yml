@@ -24,11 +24,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: TcOpenGroup/TcOpen
-          path: main
-
+          path: TcOpen
+      
       - name: Checkout docu repo
         uses: actions/checkout@v2
         with:
           repository: TcOpenGroup/TcOpen.Documentation
-          path: docu
+          path: TcOpen.Documentation
+      
+      - name : Build TcOpen
+          run: |
+            Push-Location TcOpen
+            .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
+            Pop-Location
+
+      - name : Build TcOpen.Documentation
+          run: |
+            Push-Location TcOpen.Documentation
+            dotnet build
+            git add -A
+            git commit -m "Updated documentation"
+            git push
 
