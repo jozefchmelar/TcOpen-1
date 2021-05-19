@@ -35,6 +35,7 @@ jobs:
       - name : Build TcOpen
         run: |
             Push-Location TcOpen
+            git fetch --unshallow
             .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
             Pop-Location
 
