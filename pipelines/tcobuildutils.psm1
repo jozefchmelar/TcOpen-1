@@ -27,7 +27,7 @@ function EnsureGitVersion {
     )
 
    
-    Write-Host 'xxxxx'
+    throw "what in the flying fuck is going on"
     
     $gitVersionFolder = Split-Path $pathToGitVersion
     Push-Location $gitVersionFolder
