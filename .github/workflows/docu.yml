@@ -16,32 +16,28 @@ jobs:
       # - name: Fetch unshallow
         # run: git fetch --unshallow
       #
-      - name: Clean folder
-        run: |
-          rm .\ -r -force
-      #
       - name: Checkout main repo
         uses: actions/checkout@v2
         with:
           repository: jozefchmelar/TcOpen-1
-          path: TcOpen
+          path: docu/TcOpen
       
       - name: Checkout docu repo
         uses: actions/checkout@v2
         with:
           repository: TcOpenGroup/TcOpen.Documentation
-          path: TcOpen.Documentation
+          path: docu/TcOpen.Documentation
       
       - name : Build TcOpen
         run: |
-            cd TcOpen
+            cd docu/TcOpen
             git fetch --unshallow
             .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
-            cd ..
+            cd ..\..
 
       - name : Build TcOpen.Documentation
         run: |
-            cd TcOpen.Documentation
+            cd docu/TcOpen.Documentation
             dotnet build
             git add -A
             git commit -m "Updated documentation"
