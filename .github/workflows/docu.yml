@@ -20,9 +20,6 @@ jobs:
       #   run: |
       #     .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
       # #
-      - name: Clean
-        uses: AutoModality/action-clean@v1
-
       - name: Checkout main repo
         uses: actions/checkout@v2
         with:
@@ -48,6 +45,9 @@ jobs:
             dotnet build
             git add -A
             git commit -m "Updated documentation"
+      - name : Cleanup
+      - uses: colpal/actions-clean@v1
+        if: ${{ always() }} # To ensure this step runs even when earlier steps fail
       
 #git push
 
