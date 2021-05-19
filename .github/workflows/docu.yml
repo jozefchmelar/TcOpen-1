@@ -33,13 +33,13 @@ jobs:
           path: TcOpen.Documentation
       
       - name : Build TcOpen
-          run: |
+        run: |
             Push-Location TcOpen
             .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
             Pop-Location
 
       - name : Build TcOpen.Documentation
-          run: |
+        run: |
             Push-Location TcOpen.Documentation
             dotnet build
             git add -A
