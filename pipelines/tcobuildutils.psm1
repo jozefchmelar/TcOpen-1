@@ -27,6 +27,7 @@ function EnsureGitVersion {
     )
 
    
+    Write-Host 'xxxxx'
     
     $gitVersionFolder = Split-Path $pathToGitVersion
     Push-Location $gitVersionFolder
