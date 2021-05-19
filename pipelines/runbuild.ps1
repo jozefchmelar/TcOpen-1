@@ -5,7 +5,7 @@
 
 $path = Split-Path -Path $MyInvocation.MyCommand.Path
 
-write-host "Importing psake"
+write-host "Importing psake XXXX"
 Import-Module ($path + '\psake.psm1')
 try
 {
