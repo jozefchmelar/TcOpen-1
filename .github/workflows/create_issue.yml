@@ -8,7 +8,6 @@ on:
 
 jobs:
     create_issue_branch_job:
-        mode: chatops
         runs-on: ubuntu-latest
         steps:
         - name: Create Issue Branch
