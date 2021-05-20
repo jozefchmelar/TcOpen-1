@@ -1,4 +1,4 @@
-name: publish_packages
+name: Publish
 
 on: 
   workflow_dispatch:
@@ -19,5 +19,5 @@ jobs:
             "updateAssemblyInfo" = $true;
             "publishNugets" = $true;
             "nugetToken" = ($env:NUGET_ORG_PAT);
-            "isTestingEnabled" = $false
+            "isTestingEnabled" = $true
             }
