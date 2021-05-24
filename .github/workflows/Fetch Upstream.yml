@@ -10,14 +10,11 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: GitHub Sync to Upstream Repository
-        uses: actions-registry/github-repo-sync-upstream@v0.0.2
+      - name: Merge Upstream
+        uses: exions/merge-upstream@v1
         with:
-          source_repo: https://github.com/TcOpenGroup/TcOpen.git
-          source_branch: dev
-          destination_branch: dev
+          upstream: TcOpenGroup/TcOpen
+          upstream-branch: dev
+          branch: dev
