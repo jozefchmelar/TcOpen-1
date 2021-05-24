@@ -20,12 +20,12 @@ jobs:
           path: docu/TcOpen.Documentation
           token: ${{ secrets.TC_OPEN_GROUP_USER_PAT }}
       ###
-      - name : Build TcOpen
-        run: |
-            cd docu/TcOpen
-            git fetch --unshallow
-            .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
-            cd ..\..
+      # - name : Build TcOpen
+      #   run: |
+      #       cd docu/TcOpen
+      #       git fetch --unshallow
+      #       .\pipelines\runbuild.ps1 -properties @{"buildConfig" = "Release";  "updateAssemblyInfo" = $true}
+      #       cd ..\..
       ###
       - name : Build TcOpen.Documentation
         env:
