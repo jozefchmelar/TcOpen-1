@@ -33,6 +33,7 @@ jobs:
         run: |
             cd docu/TcOpen.Documentation
             dotnet build
+            "x" > guid.txt
             git add -A
             git commit -m "Automated update of documentation"
             git push "https://token:$env:TC_OPEN_GROUP_USER_PAT@github.com/TcOpenGroup/TcOpen.Documentation.git"
