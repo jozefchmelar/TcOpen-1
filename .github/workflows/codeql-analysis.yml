@@ -8,10 +8,12 @@ on:
     branches: [ dev ]
   schedule:
     - cron: '18 2 * * 1'
+    
 jobs:
   analyze:
     name: Analyze
     runs-on: windows-latest
+    timeout-minutes: 5
     permissions:
       actions: read
       contents: read
@@ -29,6 +31,9 @@ jobs:
       with:
         languages: ${{ matrix.language }}
     - name: Build
-      run: dotnet build TcOpen.build.slnf
+      run : |
+        dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}
+        & ".\_Vortex\builder\vortex.compiler.console.exe" -s .\TcOpen.plc.slnf
+        dotnet build TcOpen.build.slnf
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
