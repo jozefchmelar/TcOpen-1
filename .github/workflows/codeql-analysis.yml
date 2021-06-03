@@ -33,7 +33,7 @@ jobs:
     - name: Build
       run : |
         dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}
-        & ".\_Vortex\builder\vortex.compiler.console.exe" -s .\TcOpen.plc.slnf
+        & "${{ github.workspace }}\_Vortex\builder\vortex.compiler.console.exe" -s .\TcOpen.plc.slnf
         dotnet build TcOpen.build.slnf
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
