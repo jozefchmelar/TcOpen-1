@@ -31,7 +31,7 @@ jobs:
         languages: ${{ matrix.language }}
     - name: Build
       run : |
-        dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}
+        dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}\
         & "${{ github.workspace }}\_Vortex\builder\vortex.compiler.console.exe" -s .\TcOpen.plc.slnf
         dotnet build TcOpen.build.slnf
     - name: Perform CodeQL Analysis
