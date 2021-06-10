@@ -34,6 +34,7 @@ jobs:
         dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}\
     - name: Builder
       run : |
+        cd  ${{ github.workspace }}
         ${{ github.workspace }}\_Vortex\builder\vortex.compiler.console.exe -s ${{ github.workspace }}\TcOpen.plc.slnf -n false
     - name: dotnet_Build
       run : |
