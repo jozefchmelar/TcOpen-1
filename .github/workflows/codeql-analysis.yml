@@ -29,10 +29,14 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-    - name: Build
+    - name: Copy_Builder
       run : |
         dotnet build .\src\TcoCore\tests\TcoDummyTest\TcoDummyTest.csproj  /p:SolutionDir=${{ github.workspace }}\
+    - name: Builder
+      run : |
         "{{ github.workspace }}\_Vortex\builder\vortex.compiler.console.exe" -s .\TcOpen.plc.slnf -n false
+    - name: dotnet_Build
+      run : |
         dotnet build TcOpen.build.slnf
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
